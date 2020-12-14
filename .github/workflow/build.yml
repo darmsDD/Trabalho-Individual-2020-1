@@ -1,0 +1,49 @@
+name: continuousIntegration
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  api:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: build railsApi
+        run: docker-compose up --no-start api
+      - name: create db
+        run: docker-compose run api rake db:create
+      - name: migrate db
+        run: docker-compose run api rake db:migrate
+      - name: test api
+        run: docker-compose run api bundle exec rails test
+      - name: SonarCloud
+        uses: sonarsource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+  
+  client:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '14.15.1'
+      - name: build vueClient
+        run: |
+          docker build -t frontend ./client
+          docker run frontend yarn run build
+      - name: test vueClient
+        run: |
+          docker run frontend yarn run test:unit
+      - name: SonarCloud
+        uses: sonarsource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
+
+  
