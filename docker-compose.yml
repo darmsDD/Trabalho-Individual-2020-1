@@ -9,6 +9,7 @@ services:
       - ./api:/apiRails
     depends_on:
       - database
+    command: /bin/sh -c "rm -rf /apiRails/tmp/pids && rails server -b 0.0.0.0"
     
   frontend:
     build: ./client
