@@ -5,28 +5,10 @@ filename='tmp/pids/server.pid'
 # Create an empty file
 # Check the file is exists or not
 if [ -f $filename ]; then
-   ls
-   rm -rf tmp
+   rm $filename
    echo "$filename is removed"
-   ls 
 else
-    ls tmp/pids/server.pid
-
-    echo "mas aaaaaaque odio jesus"
-    echo "mas que odio jesus"
-    echo "mas que odio jesus"
-    echo "mas que odio jesus"
-    echo "mas que odio jesus"
-    echo "mas que odio jesus"
-    echo "mas que odio jesus"
-    echo "mas que odio jesus"
-    echo "mas que odio jesus"
-
-echo "nao sei"
-echo "nao sei"
-echo "nao sei"
-echo "nao sei"
-ls tmp/
+    rm -rf tmp/pids
 
 fi
 
