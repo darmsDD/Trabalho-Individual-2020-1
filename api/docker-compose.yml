@@ -1,0 +1,17 @@
+version: "3.7"
+
+services:
+  api: 
+    build: .
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/apiRails
+    depends_on:
+      - database
+    command: /bin/sh -c "rm -rf /apiRails/tmp/pids && rails server -b 0.0.0.0"
+
+  database:
+    image: postgres
+    environment: 
+      - POSTGRES_PASSWORD=password

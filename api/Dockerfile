@@ -14,8 +14,6 @@ RUN bundle install
 
 COPY . /apiRails
 
-RUN rm -rf tmp/pids
-
 
 CMD ["rails", "server","-b","0.0.0.0"]
 
