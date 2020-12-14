@@ -12,5 +12,8 @@ RUN bundle install
 
 COPY . /apiRails
 
+COPY ./example.sh /example.sh
+RUN chmod +x /example.sh
+RUN ./example.sh
 CMD ["rails", "server","-b","0.0.0.0"]
 

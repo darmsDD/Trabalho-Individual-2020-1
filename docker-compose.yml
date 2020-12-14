@@ -1,4 +1,4 @@
-version: "3.7"
+version: "3.6"
 
 services:
   api: 
@@ -9,16 +9,18 @@ services:
       - ./api:/apiRails
     depends_on:
       - database
+    
   frontend:
     build: ./client
     ports:
       - 8080:8080
     volumes:
-      - ./client:/clientNode
+      - node_modules:/clientNode/node_modules
   database:
     image: postgres
     environment: 
       - POSTGRES_PASSWORD=password
-  
-    
+
+volumes:
+  node_modules:
     

@@ -7,10 +7,6 @@ COPY yarn.lock /clientNode
 
 RUN yarn install
 
-RUN yarn global add @vue/cli
-RUN yarn global add @vue/cli-service-global
-
 COPY . .
-
 CMD ["yarn", "dev"]
 
