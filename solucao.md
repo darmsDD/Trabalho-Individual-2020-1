@@ -23,3 +23,18 @@ Para rodar o projeto todo realize os seguintes comandos:
 2. Caso não tenha configurado o banco realize os comandos:
     1. Crie o banco com : ```docker-compose run api rake db:create```
     2. Realize as migrações com: ```docker-compose run api rake db:migrate```
+    
+## Integração Contínua
+Para a integração contínua eu utilizei 2 ferramentas.
+1. SonarCloud
+2. Github Actions
+
+Eu criei 2 jobs um para o backend(api) e outra para o frontend(client). O job da api era realizado em 4 etapas
+1. Cria e sobe o contâiner
+2. Cria e roda as migrações do banco
+3. Realiza os testes
+4. Avisa o sonar cloud para coletar as métricas do projeto.
+
+O jobs do client era realizado em 3 etapas, não possuindo a etapa 2. 
+
+Para acessar o SonarCloud clique no [link](https://sonarcloud.io/dashboard?id=darmsDD_Trabalho-Individual-2020-1).
