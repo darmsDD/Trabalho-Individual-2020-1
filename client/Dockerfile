@@ -1,16 +1,16 @@
 FROM node:14.15.1
 
-RUN mkdir /clientNode
-
 WORKDIR /clientNode
 
-ADD package.json /clientNode
+COPY package.json /clientNode
+COPY yarn.lock /clientNode
 
-ADD yarn.lock /clientNode
+RUN yarn install
 
-RUN yarn
+RUN yarn global add @vue/cli
+RUN yarn global add @vue/cli-service-global
 
-ADD . /clientNode
+COPY . .
 
 CMD ["yarn", "dev"]
 

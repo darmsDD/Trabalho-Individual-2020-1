@@ -9,17 +9,16 @@ services:
       - ./api:/apiRails
     depends_on:
       - database
-  
-  database:
-    image: postgres
-    environment: 
-      - POSTGRES_PASSWORD=password
-  
   frontend:
     build: ./client
     ports:
       - 8080:8080
     volumes:
       - ./client:/clientNode
+  database:
+    image: postgres
+    environment: 
+      - POSTGRES_PASSWORD=password
+  
     
     
