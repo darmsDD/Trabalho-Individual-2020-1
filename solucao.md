@@ -35,6 +35,6 @@ Eu criei 2 jobs um para o backend(api) e outra para o frontend(client). O job da
 3. Realiza os testes
 4. Avisa o sonar cloud para coletar as métricas do projeto.
 
-O jobs do client era realizado em 3 etapas, não possuindo a etapa 2. 
+O job do client realiza as mesmas etapas acima, porém não realiza a etapa 2. 
 
 Para acessar o SonarCloud clique no [link](https://sonarcloud.io/dashboard?id=darmsDD_Trabalho-Individual-2020-1).
