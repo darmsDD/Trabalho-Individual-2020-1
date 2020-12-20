@@ -38,3 +38,6 @@ Eu criei 2 jobs um para o backend(api) e outra para o frontend(client). O job da
 O job do client realiza as mesmas etapas acima, porém não realiza a etapa 2. 
 
 Para acessar o SonarCloud clique no [link](https://sonarcloud.io/dashboard?id=darmsDD_Trabalho-Individual-2020-1).
+
+## Teste do sona cloud
+1. Commit de teste.
