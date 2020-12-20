@@ -41,3 +41,8 @@ Para acessar o SonarCloud clique no [link](https://sonarcloud.io/dashboard?id=da
 
 ## Teste do sona cloud
 1. Commit de teste.
+
+## Teste do Pr 
+1. Estou testando o pr
+2. Espero que funcione pro monitor me dar nota.
+3. Boa sorte pra mim
